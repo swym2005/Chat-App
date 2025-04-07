@@ -38,7 +38,7 @@ javac Client.java
 java Server
 java Client
 
-###🧪 How It Works
+##🧪 How It Works
 -Messages and files are sent as serialized Java objects.
 
 -The GUI supports:
@@ -47,7 +47,7 @@ java Client
 -Sending files via a file icon (file chooser opens)
 -Files are saved locally with received_ prepended to the filename.
 
-### 📌 Requirements
+## 📌 Requirements
 -Java 8 or later
 
 -The Icons folder must exist in the root directory with the following files:
@@ -56,16 +56,16 @@ java Client
 -Profile_icon.png
 -file_add.png
 
-###⚠️ Limitations
+##⚠️ Limitations
 -No support for multiple clients (1:1 only)
 -No authentication/login system
 -No message encryption (not secure for production use)
 
-###📚 License
+##📚 License
 -This project is open-source and available for educational and personal use.
--Feel free to modify, extend, and share!
+-Feel free to make your own copy, extend, and share!
 
-###🙌 Credits
+##🙌 Credits
 Created by [Swayam Dalal]
 Icons used are assumed to be royalty-free or project-specific.
 
