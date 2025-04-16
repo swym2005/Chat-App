@@ -9,7 +9,9 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 public class Server implements ActionListener {
-    JPanel p1 = new JPanel();
+    static JLabel l4;
+    static JLabel offline;
+    static JPanel p1 = new JPanel();
     static JFrame frame = new JFrame();
     static JPanel p2 = new JPanel();
     JTextField text = new JTextField();
@@ -44,17 +46,18 @@ public class Server implements ActionListener {
 
 
         //label for the name of the person.
-        JLabel l3 = new JLabel("Harvey");
+        JLabel l3 = new JLabel("Viraj");
         l3.setBounds(93, 13, 100, 25);
         l3.setFont(new Font("Segoe UI", Font.BOLD, 19));
         l3.setForeground(Color.WHITE);
 
 
         //Status label
-        JLabel l4 = new JLabel("Online");
+        l4 = new JLabel("Online");
         l4.setBounds(94, 35, 100, 18);
         l4.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         l4.setForeground(Color.WHITE);
+
 
 
         //Added everything to the top green panel
@@ -204,6 +207,9 @@ public class Server implements ActionListener {
                 }
             }
         } catch (Exception ex) {
+            l4.setText("Offline");
+            p1.revalidate();
+            p1.repaint();
             ex.printStackTrace();
         }
     }
