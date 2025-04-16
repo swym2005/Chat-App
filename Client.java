@@ -1,4 +1,4 @@
-// Client.java
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -10,7 +10,9 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 public class Client implements ActionListener {
-    JPanel p1;
+    static JLabel l4;
+    static JLabel offline;
+    static JPanel p1;
     JTextField text;
     JButton button;
     static JPanel p2;
@@ -41,17 +43,25 @@ public class Client implements ActionListener {
         l2.setBounds(40, 12, 45, 45);
         p1.add(l2);
 
-        JLabel l3 = new JLabel("Michael");
+        JLabel l3 = new JLabel("Swayam");
         l3.setFont(new Font("Segoe UI", Font.BOLD, 19));
         l3.setForeground(Color.WHITE);
         l3.setBounds(93, 13, 100, 25);
         p1.add(l3);
 
-        JLabel l4 = new JLabel("Online");
+        l4 = new JLabel("Online");
         l4.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         l4.setForeground(Color.WHITE);
         l4.setBounds(94, 35, 100, 18);
+
+
         p1.add(l4);
+
+        offline = new JLabel("Offline");
+        offline.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        offline.setForeground(Color.WHITE);
+        offline.setBounds(94, 35, 100, 18);
+
 
         p2 = new JPanel();
         p2.setLayout(new BoxLayout(p2, BoxLayout.Y_AXIS));
@@ -167,7 +177,7 @@ public class Client implements ActionListener {
     public static void main(String[] args) {
         new Client();
         try {
-            Socket s = new Socket("127.0.0.1", 6001);
+            Socket s = new Socket("192.168.206.207", 6001);
             objOut = new ObjectOutputStream(s.getOutputStream());
             objIn = new ObjectInputStream(s.getInputStream());
 
@@ -188,7 +198,11 @@ public class Client implements ActionListener {
                 }
             }
         } catch (Exception ex) {
+           l4.setText("Offline");
+           p1.revalidate();
+           p1.repaint();
             ex.printStackTrace();
+
         }
     }
 }
